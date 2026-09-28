@@ -1,0 +1,48 @@
+<!-- ---------------------------------------------------
+MODULE 4: index.html (Frontend)
+Purpose: Page structure - two tabs, Hide and Reveal.
+--------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Steganography Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Steganography Tool</h1>
+    <p class="subtitle">Hide a secret message inside an image, or reveal one that's already hidden.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-hide-btn" onclick="showTab('hide')">Hide message</button>
+      <button class="tab-btn" id="tab-reveal-btn" onclick="showTab('reveal')">Reveal message</button>
+    </div>
+
+    <!-- HIDE TAB -->
+    <div id="tab-hide" class="tab-content active">
+      <label>1. Choose an image (PNG works best)</label>
+      <input type="file" id="hide-image-input" accept="image/*">
+
+      <label>2. Type your secret message</label>
+      <textarea id="hide-message-input" rows="3" placeholder="Type your secret message here..."></textarea>
+
+      <button id="hide-btn" onclick="hideMessage()">Hide message in image</button>
+
+      <div id="hide-result" class="result"></div>
+    </div>
+
+    <!-- REVEAL TAB -->
+    <div id="tab-reveal" class="tab-content">
+      <label>Choose an image that contains a hidden message</label>
+      <input type="file" id="reveal-image-input" accept="image/*">
+
+      <button id="reveal-btn" onclick="revealMessage()">Reveal hidden message</button>
+
+      <div id="reveal-result" class="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
